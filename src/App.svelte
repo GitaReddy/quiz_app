@@ -12,14 +12,14 @@
     },
 
 	{
-        question: 'What is the capital of Telangana?',
-        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
-        answer: 'Hyderabad'
+        question: "What is the capital of Telangana?",
+        options: ["Chennai", "Bangalore", "Hyderabad", "Pune"],
+        answer: "Hyderabad"
       },
 	  {
-        question: 'What is the capital of Karnataka?',
-        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
-        answer: 'Bangalore'
+        question: "What is the capital of Karnataka?",
+        options: ["Chennai", "Bangalore", "Hyderabad", "Pune"],
+        answer: "Bangalore"
       },
     // Add more questions here
   ];
