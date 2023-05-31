@@ -1,30 +1,74 @@
 <script>
-	export let name;
+  let questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["Paris", "London", "Berlin", "Madrid"],
+      answer: "Paris"
+    },
+    {
+      question: "What is the largest planet in our solar system?",
+      options: ["Mars", "Jupiter", "Saturn", "Venus"],
+      answer: "Jupiter"
+    },
+
+	{
+        question: 'What is the capital of Telangana?',
+        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
+        answer: 'Hyderabad'
+      },
+	  {
+        question: 'What is the capital of Karnataka?',
+        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
+        answer: 'Bangalore'
+      },
+    // Add more questions here
+  ];
+
+  let currentQuestion = 0;
+  let selectedOption = null;
+  let score = 0;
+
+  function checkAnswer() {
+    if (selectedOption === questions[currentQuestion].answer) {
+      score++;
+    }
+    nextQuestion();
+  }
+
+  function nextQuestion() {
+    selectedOption = null;
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+    } else {
+      alert(`Quiz completed! Your score is ${score}/${questions.length}`);
+      // You can reset the quiz or redirect to another page here
+    }
+  }
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<div class="quiz-container">
+  <h2>Question {currentQuestion + 1}</h2>
+  <p>{questions[currentQuestion].question}</p>
+
+  {#each questions[currentQuestion].options as option}
+    <label>
+      <input type="radio" bind:group={selectedOption} value={option} />
+      {option}
+    </label>
+  {/each}
+
+  <button on:click={checkAnswer} disabled={selectedOption === null}>
+    Submit
+  </button>
+</div>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  .quiz-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+  }
 </style>
