@@ -64,7 +64,7 @@
     </label>
   {/each}
 
-  <button on:click={checkAnswer} disabled={selectedOption === null}>
+  <button style="margin-top:10px;" on:click={checkAnswer} disabled={selectedOption === null}>
     Submit
   </button>
 </div>
