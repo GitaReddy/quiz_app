@@ -35,6 +35,12 @@
     nextQuestion();
   }
 
+
+  function resetQuiz() {
+    currentQuestion = 0;
+    answer = [];
+  }
+
   function nextQuestion() {
     selectedOption = null;
     if (currentQuestion < questions.length - 1) {
@@ -42,6 +48,7 @@
     } else {
       alert(`Quiz completed! Your score is ${score}/${questions.length}`);
       // You can reset the quiz or redirect to another page here
+      resetQuiz()
     }
   }
 </script>
