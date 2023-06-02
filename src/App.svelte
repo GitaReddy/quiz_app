@@ -11,7 +11,8 @@
       answer: "Jupiter"
     },
 
-	{
+
+    {
         question: "What is the capital of Telangana?",
         options: ["Chennai", "Bangalore", "Hyderabad", "Pune"],
         answer: "Hyderabad"
@@ -35,10 +36,10 @@
     nextQuestion();
   }
 
-
   function resetQuiz() {
     currentQuestion = 0;
     answer = [];
+    
   }
 
   function nextQuestion() {
@@ -48,7 +49,8 @@
     } else {
       alert(`Quiz completed! Your score is ${score}/${questions.length}`);
       // You can reset the quiz or redirect to another page here
-      resetQuiz()
+      score = 0;
+      resetQuiz();
     }
   }
 </script>
@@ -64,7 +66,7 @@
     </label>
   {/each}
 
-  <button style="margin-top:10px;" on:click={checkAnswer} disabled={selectedOption === null}>
+  <button  style="margin-top:10px;" on:click={checkAnswer} disabled={selectedOption === null}>
     Submit
   </button>
 </div>
